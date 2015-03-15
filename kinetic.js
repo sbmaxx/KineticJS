@@ -1326,7 +1326,7 @@ var Kinetic = {};
         // and causes artifacts on the canvas.  As of 02/26/2014, there doesn't seem to be a way
         // to reliably calculate the browser zoom for modern browsers, which is why we just set
         // the pixel ratio to 1 for desktops
-        _pixelRatio = Kinetic.UA.mobile ? (function() {
+        _pixelRatio = (function() {
             var devicePixelRatio = window.devicePixelRatio || 1,
             backingStoreRatio = context.webkitBackingStorePixelRatio
                 || context.mozBackingStorePixelRatio
@@ -1335,7 +1335,7 @@ var Kinetic = {};
                 || context.backingStorePixelRatio
                 || 1;
             return devicePixelRatio / backingStoreRatio;
-        })() : 1;
+        })();
 
     /**
      * Canvas Renderer constructor
